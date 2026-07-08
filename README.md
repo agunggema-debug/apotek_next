@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💊 Apotek Raja Farma
 
-## Getting Started
+Website landing page modern untuk **Apotek Raja Farma** — solusi kesehatan tepercaya. Dibangun menggunakan **Next.js 15** (App Router) dengan integrasi AI chatbot untuk konsultasi obat.
 
-First, run the development server:
+## ✨ Fitur
+
+- **Landing Page Responsif** — Hero, layanan, kategori produk, testimonial, kontak, dan footer
+- **AI Chatbot** — Chatbot interaktif bertenaga **Groq AI** (Llama 3) untuk konsultasi obat dan kesehatan
+- **Login Modal** — Modal login untuk akses pengguna
+- **Scroll to Top** — Tombol navigasi cepat ke atas halaman
+- **Animasi Scroll** — Efek muncul saat scroll menggunakan custom hook
+- **Toast Notification** — Notifikasi pop-up untuk feedback pengguna
+- **Fully Responsive** — Tampilan optimal di desktop, tablet, dan mobile
+- **Google Fonts** — Menggunakan font Poppins & Montserrat
+
+## 🛠️ Tech Stack
+
+| Teknologi | Keterangan |
+|-----------|-----------|
+| [Next.js 15](https://nextjs.org/) | React framework (App Router) |
+| [React 19](https://react.dev/) | UI library |
+| [TypeScript](https://www.typescriptlang.org/) | Bahasa pemrograman |
+| [Tailwind CSS 4](https://tailwindcss.com/) | Utility-first CSS framework |
+| [AI SDK](https://sdk.vercel.ai/) | Library AI/chat (Vercel AI SDK) |
+| [Groq](https://groq.com/) | Inference engine untuk AI chatbot |
+
+## 📁 Struktur Project
+
+```
+apotek-next/
+├── public/                  # Static assets
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── chat/
+│   │   │       └── route.ts    # API endpoint untuk AI chatbot
+│   │   ├── globals.css         # Global styles (Tailwind)
+│   │   ├── layout.tsx          # Root layout (metadata, fonts)
+│   │   └── page.tsx            # Halaman utama (landing page)
+│   ├── components/
+│   │   ├── Header.tsx          # Navigasi atas
+│   │   ├── Hero.tsx            # Hero section
+│   │   ├── Services.tsx        # Layanan apotek
+│   │   ├── Categories.tsx      # Kategori produk
+│   │   ├── Products.tsx        # Daftar produk
+│   │   ├── Testimonials.tsx    # Testimonial pelanggan
+│   │   ├── Contact.tsx         # Form kontak
+│   │   ├── Footer.tsx          # Footer
+│   │   ├── Chatbot.tsx         # AI chatbot
+│   │   ├── LoginModal.tsx      # Modal login
+│   │   ├── ScrollToTop.tsx     # Tombol scroll to top
+│   │   └── Icon.tsx            # Komponen ikon reusable
+│   ├── data/
+│   │   ├── categories.ts       # Data kategori
+│   │   ├── products.ts         # Data produk
+│   │   └── testimonials.ts     # Data testimonial
+│   ├── hooks/
+│   │   └── useScroll.ts        # Custom hook scroll detection
+│   └── lib/
+│       └── toast.tsx           # Utility toast notification
+├── .env.example                # Template environment variables
+├── .gitignore
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── tsconfig.json
+└── eslint.config.mjs
+```
+
+## 🚀 Cara Menjalankan
+
+### Prasyarat
+
+- Node.js 18+
+- npm / yarn / pnpm
+
+### Instalasi
+
+```bash
+# Clone repository
+git clone https://github.com/username/apotek-next.git
+cd apotek-next
+
+# Install dependencies
+npm install
+# atau
+yarn install
+# atau
+pnpm install
+```
+
+### Environment Variables
+
+Buat file `.env.local` di root project:
+
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+Dapatkan API key gratis di [console.groq.com](https://console.groq.com).
+
+### Jalankan Development Server
 
 ```bash
 npm run dev
-# or
+# atau
 yarn dev
-# or
+# atau
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build untuk Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 🌐 Deploy ke Vercel
 
-To learn more about Next.js, take a look at the following resources:
+### Persiapan
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push project ke GitHub/GitLab/Bitbucket
+2. Buka [vercel.com](https://vercel.com) dan login
+3. Klik **"Add New..."** → **"Project"**
+4. Pilih repository `apotek-next`
+5. Vercel akan otomatis mendeteksi framework **Next.js**
+6. Di bagian **Environment Variables**, tambahkan:
+   - `GROQ_API_KEY` → isi dengan API key Groq Anda
+7. Klik **"Deploy"**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Aplikasi akan live di URL: `https://apotek-next.vercel.app`
 
-## Deploy on Vercel
+Setiap push ke branch `main` akan otomatis memicu redeploy.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Custom Domain (Opsional)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Bisa menambahkan domain kustom di dashboard Vercel → Project → **Domains**.
+
+## 📄 Lisensi
+
+Private project.
