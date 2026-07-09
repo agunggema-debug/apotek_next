@@ -15,7 +15,7 @@ export default function Hero() {
 
   return (
     <section id="beranda" className="hero-section" style={{
-      position: "relative", padding: "160px 0 100px 0",
+      position: "relative",
       background: "linear-gradient(135deg, #f0fdfa 0%, #ffffff 50%, #fef3c7 100%)",
       overflow: "hidden"
     }}>
@@ -25,9 +25,7 @@ export default function Hero() {
         top: "-100px", right: "-100px", pointerEvents: "none"
       }} />
 
-      <div className="container hero-container" style={{
-        display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "48px", alignItems: "center"
-      }}>
+      <div className="container hero-container">
         {/* Left Content */}
         <div className="hero-content">
           <span className="badge-premium" style={{
@@ -38,9 +36,7 @@ export default function Hero() {
           }}>
             <Icon name="award" size={14} color="var(--primary-color)" /> Apotek Mitra Keluarga Tepercaya
           </span>
-          <h1 className="hero-title" style={{
-            fontSize: "3.25rem", fontWeight: 700, marginBottom: "24px", letterSpacing: "-0.5px"
-          }}>
+          <h1 className="hero-title">
             Kesehatan Anda Adalah <span className="gradient-text">Prioritas Utama</span> Kami
           </h1>
           <p className="hero-desc" style={{
@@ -48,7 +44,7 @@ export default function Hero() {
           }}>
             Menyediakan obat-obatan 100% asli, konsultasi kesehatan dengan apoteker berpengalaman secara gratis, serta layanan pengiriman cepat langsung ke rumah Anda.
           </p>
-          <div className="hero-actions" style={{ display: "flex", gap: "16px", marginBottom: "48px" }}>
+          <div className="hero-actions">
             <button onClick={scrollToProducts} className="btn btn-primary">
               Cari Obat <Icon name="chevron-right" size={14} color="white" />
             </button>
@@ -56,29 +52,18 @@ export default function Hero() {
               <Icon name="comment-medical" size={16} color="var(--primary-color)" /> Konsultasi Apoteker
             </button>
           </div>
-          <div className="hero-stats" style={{
-            display: "flex", gap: "40px", borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: "24px"
-          }}>
+          <div className="hero-stats">
             <div className="stat-item">
-              <span style={{
-                fontFamily: "'Montserrat', sans-serif", fontSize: "2rem",
-                fontWeight: 700, color: "var(--primary-color)"
-              }}>15K+</span>
-              <span style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>Pelanggan Puas</span>
+              <span className="stat-value">15K+</span>
+              <span className="stat-label">Pelanggan Puas</span>
             </div>
             <div className="stat-item">
-              <span style={{
-                fontFamily: "'Montserrat', sans-serif", fontSize: "2rem",
-                fontWeight: 700, color: "var(--primary-color)"
-              }}>100%</span>
-              <span style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>Keaslian Obat</span>
+              <span className="stat-value">100%</span>
+              <span className="stat-label">Keaslian Obat</span>
             </div>
             <div className="stat-item">
-              <span style={{
-                fontFamily: "'Montserrat', sans-serif", fontSize: "2rem",
-                fontWeight: 700, color: "var(--primary-color)"
-              }}>24/7</span>
-              <span style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>Layanan Siaga</span>
+              <span className="stat-value">24/7</span>
+              <span className="stat-label">Layanan Siaga</span>
             </div>
           </div>
         </div>
@@ -90,22 +75,10 @@ export default function Hero() {
               src="/assets/hero_pharmacy.png"
               alt="Apotek Raja Farma Modern"
               className="hero-img"
-              style={{
-                borderRadius: "var(--border-radius-lg)", boxShadow: "var(--box-shadow-lg)",
-                maxWidth: "100%", transform: "perspective(1000px) rotateY(-5deg)",
-                transition: "var(--transition-normal)"
-              }}
             />
 
             {/* Floating Badge 1 */}
-            <div className="floating-badge badge-1" style={{
-              position: "absolute", top: "40px", left: "-40px",
-              display: "flex", alignItems: "center", gap: "14px",
-              background: "var(--glass-bg)", backdropFilter: "var(--glass-blur)",
-              border: "1px solid var(--glass-border)", padding: "14px 20px",
-              borderRadius: "var(--border-radius-md)", boxShadow: "var(--box-shadow-md)",
-              animation: "float 4s ease-in-out infinite"
-            }}>
+            <div className="floating-badge badge-1">
               <Icon name="shield-halved" size={28} color="var(--primary-color)" />
               <div>
                 <h4 style={{ fontSize: "0.9rem", fontWeight: 700 }}>Tersertifikasi BPOM</h4>
@@ -114,15 +87,7 @@ export default function Hero() {
             </div>
 
             {/* Floating Badge 2 */}
-            <div className="floating-badge badge-2" style={{
-              position: "absolute", bottom: "40px", right: "-20px",
-              display: "flex", alignItems: "center", gap: "14px",
-              background: "var(--glass-bg)", backdropFilter: "var(--glass-blur)",
-              border: "1px solid var(--glass-border)", padding: "14px 20px",
-              borderRadius: "var(--border-radius-md)", boxShadow: "var(--box-shadow-md)",
-              animation: "float 4s ease-in-out infinite",
-              animationDelay: "2s"
-            }}>
+            <div className="floating-badge badge-2">
               <Icon name="truck-fast" size={28} color="var(--primary-color)" />
               <div>
                 <h4 style={{ fontSize: "0.9rem", fontWeight: 700 }}>Pengiriman Cepat</h4>

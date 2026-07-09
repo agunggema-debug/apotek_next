@@ -236,7 +236,98 @@ img {
 }
 
 /* ==========================================================================
-   MEDIA QUERIES (RESPONSIVENESS)
+   HERO SECTION – RESPONSIVE
+   ========================================================================== */
+
+/* Hero section padding — bertahap */
+.hero-section {
+  padding: 160px 0 100px 0;
+}
+
+/* Hero container grid: default 2 kolom */
+.hero-container {
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important;
+  gap: 48px !important;
+  align-items: center !important;
+}
+
+/* Hero title default */
+.hero-title {
+  font-size: 3.25rem;
+}
+
+/* Hero stats default */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 24px;
+}
+
+.hero-stats .stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stats .stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.2;
+}
+
+.hero-stats .stat-label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Hero actions default */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+/* Floating badges default */
+.floating-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  padding: 14px 20px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow-md);
+  animation: float 4s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+.floating-badge.badge-1 {
+  top: 40px;
+  left: -40px;
+}
+
+.floating-badge.badge-2 {
+  bottom: 40px;
+  right: -20px;
+  animation-delay: 2s;
+}
+
+/* Hero image — default rotate */
+.hero-img {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow-lg);
+  max-width: 100%;
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: var(--transition-normal);
+}
+
+/* ==========================================================================
+   TABLET (768px – 1024px)
    ========================================================================== */
 @media (max-width: 1024px) {
   .services-grid,
@@ -251,8 +342,70 @@ img {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
+  /* === HERO TABLET === */
+  .hero-section {
+    padding: 120px 0 80px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center;
+  }
+
+  .hero-container .hero-content {
+    order: 2;
+  }
+
+  .hero-container .hero-image-container {
+    order: 1;
+  }
+
+  .hero-title {
+    font-size: 2.75rem !important;
+  }
+
+  .hero-container .hero-desc {
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: 32px;
+  }
+
+  /* Floating badges — geser agar tidak terpotong */
+  .floating-badge.badge-1 {
+    left: 10px;
+  }
+
+  .floating-badge.badge-2 {
+    right: 10px;
+  }
+
+  /* Hilangkan rotate di tablet agar lebih bersih */
+  .hero-img {
+    transform: perspective(1000px) rotateY(0deg);
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  .hero-image-container .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
 }
 
+/* ==========================================================================
+   SMARTPHONE (480px – 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   .hero-section .hero-title {
     font-size: 2.5rem !important;
@@ -260,15 +413,123 @@ img {
   .testimonials-grid {
     grid-template-columns: 1fr !important;
   }
+
+  /* === HERO SMARTPHONE === */
+  .hero-section {
+    padding: 100px 0 60px 0;
+  }
+
+  .hero-container {
+    gap: 32px !important;
+  }
+
+  .hero-title {
+    font-size: 2.25rem !important;
+  }
+
+  .hero-container .hero-desc {
+    font-size: 1rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-stats {
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-stats .stat-item {
+    flex: 1 1 80px;
+    min-width: 80px;
+    align-items: center;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.5rem !important;
+  }
+
+  /* Floating badges — sembunyikan 1, satunya di posisi aman */
+  .floating-badge.badge-1 {
+    top: 20px;
+    left: 10px;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .floating-badge.badge-2 {
+    display: none;
+  }
+
+  .floating-badge h4 {
+    font-size: 0.8rem;
+  }
+
+  .floating-badge p {
+    font-size: 0.65rem;
+  }
+
+  .hero-img {
+    transform: perspective(1000px) rotateY(0deg);
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .badge-premium {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+  }
 }
 
+/* ==========================================================================
+   SMALL SMARTPHONE (< 480px)
+   ========================================================================== */
 @media (max-width: 480px) {
-  .hero-section .hero-title {
+  .hero-section {
+    padding: 90px 0 50px 0;
+  }
+
+  .hero-title {
     font-size: 2rem !important;
   }
-  .hero-section .hero-actions {
-    flex-direction: column !important;
+
+  .hero-container {
+    gap: 24px !important;
   }
+
+  .hero-container .hero-desc {
+    font-size: 0.95rem !important;
+    max-width: 100% !important;
+  }
+
+  .hero-stats {
+    gap: 16px;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.3rem !important;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 0.75rem !important;
+  }
+
+  .floating-badge.badge-1 {
+    display: none;
+  }
+
+  .hero-img {
+    max-width: 100%;
+  }
+
   .services-grid,
   .categories-grid,
   .products-grid {
